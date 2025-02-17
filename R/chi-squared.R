@@ -24,7 +24,7 @@
 #' chisquared(x, y, learn = TRUE)
 #'
 #' # Interactive mode
-#' \dontrun{
+#' if(interactive()){
 #' chisquared(interactive = TRUE)
 #' }
 #'

@@ -29,7 +29,7 @@ standard_deviation(data)
 standard_deviation(data, learn = TRUE)
 
 # Interactive mode
-\dontrun{
+if(interactive()){
 standard_deviation(interactive = TRUE)
 }
 

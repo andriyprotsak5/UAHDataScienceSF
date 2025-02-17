@@ -32,7 +32,7 @@ covariance(data, data2)
 covariance(data, data2, learn = TRUE)
 
 # Interactive mode
-\dontrun{
+if(interactive()){
 covariance(interactive = TRUE)
 }
 

@@ -21,7 +21,7 @@
 #' cv(data, learn = TRUE)
 #'
 #' # Interactive mode
-#' \dontrun{
+#' if(interactive()){
 #' cv(interactive = TRUE)
 #' }
 #'

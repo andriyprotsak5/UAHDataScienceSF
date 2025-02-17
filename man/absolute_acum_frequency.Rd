@@ -32,7 +32,7 @@ absolute_acum_frequency(data, value)
 absolute_acum_frequency(data, value, learn = TRUE)
 
 # Interactive mode
-\dontrun{
+if(interactive()){
 absolute_acum_frequency(interactive = TRUE)
 }
 

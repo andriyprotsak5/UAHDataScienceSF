@@ -29,7 +29,7 @@ normal(x)
 normal(x, learn = TRUE)
 
 # Interactive mode
-\dontrun{
+if(interactive()){
 normal(interactive = TRUE)
 }
 

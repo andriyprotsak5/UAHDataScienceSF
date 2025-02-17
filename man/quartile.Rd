@@ -29,7 +29,7 @@ quartile(data)
 quartile(data, learn = TRUE)
 
 # Interactive mode
-\dontrun{
+if(interactive()){
 quartile(interactive = TRUE)
 }
 

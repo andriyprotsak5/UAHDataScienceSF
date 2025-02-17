@@ -22,7 +22,7 @@
 #' variance(data, learn = TRUE)
 #'
 #' # Interactive mode
-#' \dontrun{
+#' if(interactive()){
 #' variance(interactive = TRUE)
 #' }
 #'

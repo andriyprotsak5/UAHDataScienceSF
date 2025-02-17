@@ -32,7 +32,7 @@ absolute_frequency(data, value)
 absolute_frequency(data, value, learn = TRUE)
 
 # Interactive mode
-\dontrun{
+if(interactive()){
 absolute_frequency(interactive = TRUE)
 }
 

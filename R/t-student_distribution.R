@@ -28,7 +28,7 @@
 #' tstudent(x, u, s, n, learn = TRUE)
 #'
 #' # Interactive mode
-#' \dontrun{
+#' if(interactive()){
 #' tstudent(interactive = TRUE)
 #' }
 #'

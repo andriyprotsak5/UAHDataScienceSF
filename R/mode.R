@@ -21,7 +21,7 @@
 #' mode_(data, learn = TRUE)
 #'
 #' # Interactive mode
-#' \dontrun{
+#' if(interactive()){
 #' mode_(interactive = TRUE)
 #' }
 #'

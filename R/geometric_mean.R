@@ -22,7 +22,7 @@
 #' geometric_mean(data, learn = TRUE)
 #'
 #' # Interactive mode
-#' \dontrun{
+#' if(interactive()){
 #' geometric_mean(interactive = TRUE)
 #' }
 #'

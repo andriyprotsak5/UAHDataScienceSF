@@ -22,7 +22,7 @@
 #' mean_(data, learn = TRUE)
 #'
 #' # Interactive mode
-#' \dontrun{
+#' if(interactive()){
 #' mean_(interactive = TRUE)
 #' }
 #'

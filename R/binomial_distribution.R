@@ -26,7 +26,7 @@
 #' binomial_(n, x, p, learn = TRUE)
 #'
 #' # Interactive mode
-#' \dontrun{
+#' if(interactive()){
 #' binomial_(interactive = TRUE)
 #' }
 #'

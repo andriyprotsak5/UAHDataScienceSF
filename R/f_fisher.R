@@ -24,7 +24,7 @@
 #' fisher(x, y, learn = TRUE)
 #'
 #' # Interactive mode
-#' \dontrun{
+#' if(interactive()){
 #' fisher(interactive = TRUE)
 #' }
 #'

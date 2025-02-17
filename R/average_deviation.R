@@ -22,7 +22,7 @@
 #' average_deviation(data, learn = TRUE)
 #'
 #' # Interactive mode
-#' \dontrun{
+#' if(interactive()){
 #' average_deviation(interactive = TRUE)
 #' }
 #'

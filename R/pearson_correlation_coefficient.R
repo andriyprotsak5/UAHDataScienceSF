@@ -24,7 +24,7 @@
 #' pearson(data, data2, learn = TRUE)
 #'
 #' # Interactive mode
-#' \dontrun{
+#' if(interactive()){
 #' pearson(interactive = TRUE)
 #' }
 #'

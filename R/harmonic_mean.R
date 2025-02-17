@@ -21,7 +21,7 @@
 #' harmonic_mean(data, learn = TRUE)
 #'
 #' # Interactive mode
-#' \dontrun{
+#' if(interactive()){
 #' harmonic_mean(interactive = TRUE)
 #' }
 #'

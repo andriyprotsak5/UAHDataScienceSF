@@ -29,7 +29,7 @@ median_(data)
 median_(data, learn = TRUE)
 
 # Interactive mode
-\dontrun{
+if(interactive()){
 median_(interactive = TRUE)
 }
 

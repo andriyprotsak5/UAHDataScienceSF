@@ -24,7 +24,7 @@
 #' relative_frequency(data, value, learn = TRUE)
 #'
 #' # Interactive mode
-#' \dontrun{
+#' if(interactive()){
 #' relative_frequency(interactive = TRUE)
 #' }
 #'

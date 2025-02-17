@@ -19,7 +19,7 @@
 #'
 #' percentile(data, 0.3, learn = TRUE)
 #'
-#' \dontrun{
+#' if(interactive()){
 #' percentile(interactive = TRUE)
 #' }
 #'

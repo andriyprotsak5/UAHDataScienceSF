@@ -32,7 +32,7 @@ poisson_(k, lam)
 poisson_(k, lam, learn = TRUE)
 
 # Interactive mode
-\dontrun{
+if(interactive()){
 poisson_(interactive = TRUE)
 }
 

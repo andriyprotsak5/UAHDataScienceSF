@@ -23,7 +23,7 @@
 #' absolute_acum_frequency(data, value, learn = TRUE)
 #'
 #' # Interactive mode
-#' \dontrun{
+#' if(interactive()){
 #' absolute_acum_frequency(interactive = TRUE)
 #' }
 #'
@@ -59,7 +59,7 @@ absolute_acum_frequency <- function(v = NULL, x = NULL, learn = FALSE, interacti
     flag <- 1
 
     while(flag == 1) {
-      cat("Please, insert the absolute acumulated frecuency of the data '", rand ,"' : ")
+      message("Please, insert the absolute acumulated frecuency of the data '", rand ,"' : ")
       cat("\n(remember your data) -> ", buffer , "\n")
       cat("If the number has decimals, round to the 3rd\n")
 
