@@ -44,28 +44,28 @@ fisher <- function(x = NULL, y = NULL, learn = FALSE, interactive = FALSE) {
     initImages("f-fisher.png")
     cont_aux <- 0
 
-    cat("\nInsert the first dataset:\n")
+    message("\nInsert the first dataset:\n")
     x = getUserAction()
-    cat("\nInsert the second dataset:\n")
+    message("\nInsert the second dataset:\n")
     y = getUserAction()
 
-    cat("\nOK! Next Move !!\n")
+    message("\nOK! Next Move !!\n")
     flag <- 1
 
     while(flag == 1) {
-      cat("Please, insert the result of the Fisher's f calculus for your data (if the result has decimal part, round to the 3rd): ")
+      message("Please, insert the result of the Fisher's f calculus for your data (if the result has decimal part, round to the 3rd): ")
       usr_resp <- as.numeric(readline(prompt = ""))
       if(usr_resp == round(fisher(x,y),3)) {
         flag <- 0
-        cat(bold("\n\nWell done !\n\n"))
+        message(bold("\n\nWell done !\n\n"))
       } else {
         cont_aux <- cont_aux + 1
-        cat("Ups, that might not be correct...")
+        message("Ups, that might not be correct...")
         if(cont_aux == 1) {
-          cat(yellow("\nHint -> Psst!... Look at the formula on the plot panel at your side -->\n\n"))
+          message(yellow("\nHint -> Psst!... Look at the formula on the plot panel at your side -->\n\n"))
         }
         else if(cont_aux > 1 ) {
-          cat(yellow("\nHint 2 -> Check that you are entering your result correctly. It's easy to be wrong.\n\n"))
+          message(yellow("\nHint 2 -> Check that you are entering your result correctly. It's easy to be wrong.\n\n"))
         }
       }
     }
@@ -74,17 +74,17 @@ fisher <- function(x = NULL, y = NULL, learn = FALSE, interactive = FALSE) {
 
   # Learning mode
   if (learn) {
-    cat(bold("\n__ F FISHER DISTRIBUTION__ \n"))
-    cat("\nF-Fisher distribution is a continuous probability distribution that arises frequently as the null distribution of a test statistic.\n")
-    cat(green("\nFormula -> sx2/sw2\n"))
-    cat(green("\nsx2 <- 2 * (((mean_(x)-meant)^2) + ((mean_(y)-meant)^2))"))
-    cat(green("\n(variance_(x) + variance_(y))/ 2"))
+    message(bold("\n__ F FISHER DISTRIBUTION__ \n"))
+    message("\nF-Fisher distribution is a continuous probability distribution that arises frequently as the null distribution of a test statistic.\n")
+    message(green("\nFormula -> sx2/sw2\n"))
+    message(green("\nsx2 <- 2 * (((mean_(x)-meant)^2) + ((mean_(y)-meant)^2))"))
+    message(green("\n(variance_(x) + variance_(y))/ 2"))
 
-    cat(bold("\n__Use Example__\n"))
-    cat("\nFirst of all, we need two datasets.")
-    cat("\n Dateset x: \n")
+    message(bold("\n__Use Example__\n"))
+    message("\nFirst of all, we need two datasets.")
+    message("\n Dateset x: \n")
     drawVector(x)
-    cat("\n Dateset x: \n")
+    message("\n Dateset x: \n")
     drawVector(y)
 
     meant <- (mean_(x) + mean_(y))/2
@@ -92,10 +92,10 @@ fisher <- function(x = NULL, y = NULL, learn = FALSE, interactive = FALSE) {
     sw2 <- (variance(x) + variance(y))/ 2
     res <- fisher(x,y)
 
-    cat("\nFormula applied -> (",sx2,"/",sw2,") = ", bold(res))
+    message("\nFormula applied -> (",sx2,"/",sw2,") = ", bold(res))
 
-    cat("\nNow try by your own! :D\n")
-    cat("\nUse fisher(interactive = TRUE) function to practice.\n")
+    message("\nNow try by your own! :D\n")
+    message("\nUse fisher(interactive = TRUE) function to practice.\n")
     return(res)
   }
 

@@ -40,34 +40,34 @@ percentile <- function(x = NULL, p = NULL, learn = FALSE, interactive = FALSE) {
     initImages("percentile.svg")
     cont = 0
 
-    cat("\nInsert your data set:\n")
+    message("\nInsert your data set:\n")
     buffer = getUserAction()
 
     #show data sorted
     buffer = sort(buffer)
-    cat("\nData sorted : ")
+    message("\nData sorted : ")
 
     drawVector(buffer)
 
     rand_percentile = sample(1:100,1)
     perc = rand_percentile/100
 
-    cat("\nOK! Next Move !!\n")
+    message("\nOK! Next Move !!\n")
     flag <- 1
 
     while(flag == 1) {
-      cat("Please, insert the result of the ", rand_percentile ,"% percentile for your data : ")
-      cat("\n(remember your data) -> ", buffer , "\n")
+      message("Please, insert the result of the ", rand_percentile ,"% percentile for your data : ")
+      message("\n(remember your data) -> ", buffer , "\n")
 
       resp_percPos <- as.numeric(readline(prompt = ""))
       if(resp_percPos == percentile(buffer, perc)) {
-        cat("\nCorrect!\n")
+        message("\nCorrect!\n")
         flag <- 0
       } else {
         cont <- cont + 1
-        cat("Ups, that might not be correct... Try again")
+        message("Ups, that might not be correct... Try again")
         if(cont >= 1) {
-          cat(yellow("\nHint -> Psst!... Look at the formula on the plot panel at your side -->\n\n"))
+          message(yellow("\nHint -> Psst!... Look at the formula on the plot panel at your side -->\n\n"))
         }
       }
     }
@@ -76,26 +76,26 @@ percentile <- function(x = NULL, p = NULL, learn = FALSE, interactive = FALSE) {
 
   # Learning mode
   if (learn) {
-    cat(bold("\n__PERCENTILES CALCULUS__ \n"))
+    message(bold("\n__PERCENTILES CALCULUS__ \n"))
     data <- sort(as.vector(x))
     size <- length(data)
-    cat("\nThe percentile divides the dataset in 100 parts.\nThe percentile indicates, once the data is ordered from least to greatest, the value of the variable below which a given percentage is located on the data\n")
-    cat(green("\nFormula x -> (k * N ) / 100 where k -> [1-100] and N -> vector size\n"))
-    cat(green("\nIf rest of x is diference to 0, the value of its percentile will be the position of the quotient of the previous operation.  \n"))
-    cat(green("\nIn the opposite case and being 0 will be the sum of the elements whose value is the quotient and following, less in the case of the 100% percentile that will be the last element.  \n"))
+    message("\nThe percentile divides the dataset in 100 parts.\nThe percentile indimessagees, once the data is ordered from least to greatest, the value of the variable below which a given percentage is lomessageed on the data\n")
+    message(green("\nFormula x -> (k * N ) / 100 where k -> [1-100] and N -> vector size\n"))
+    message(green("\nIf rest of x is diference to 0, the value of its percentile will be the position of the quotient of the previous operation.  \n"))
+    message(green("\nIn the opposite case and being 0 will be the sum of the elements whose value is the quotient and following, less in the case of the 100% percentile that will be the last element.  \n"))
 
-    cat(bold("\n__Use Example__\n"))
-    cat("\nStep 1: The vector must be sorted.\n")
+    message(bold("\n__Use Example__\n"))
+    message("\nStep 1: The vector must be sorted.\n")
 
     drawVector(data)
 
-    cat("\n")
-    cat("\nStep 2: Apply the formula (k * N) / 100 where 'k' is [1-100]\n")
-    cat("\nWe will calculate the percentiles 1,25,37,50,92 in this example\n")
+    message("\n")
+    message("\nStep 2: Apply the formula (k * N) / 100 where 'k' is [1-100]\n")
+    message("\nWe will calculate the percentiles 1,25,37,50,92 in this example\n")
 
     perc_array <- array(data = NA, dim = 100) #the percentil in our data
     perc_pos_array <- array(data = NA, dim = 100) #the real value of the percentil
-    perc_posRound_array <- array(data = NA, dim = 100) #the value rounded up for locate it
+    perc_posRound_array <- array(data = NA, dim = 100) #the value rounded up for lomessagee it
 
     #function calculates percentiles [1-100]
     for(i in 1:100) {
@@ -105,29 +105,29 @@ percentile <- function(x = NULL, p = NULL, learn = FALSE, interactive = FALSE) {
     }
 
     for(i in c(1,25,37,50,92)) {
-      cat("\nPercentile ", i, " -> (", i, " * ", size , ") / 100 = ", perc_pos_array[i] , "\n")
-      cat("\t.Round up the value to locate it in the vector -> ", perc_pos_array[i], " ~ ", perc_posRound_array[i],"\n")
-      cat("\t..In our data, the value is = ")
+      message("\nPercentile ", i, " -> (", i, " * ", size , ") / 100 = ", perc_pos_array[i] , "\n")
+      message("\t.Round up the value to lomessagee it in the vector -> ", perc_pos_array[i], " ~ ", perc_posRound_array[i],"\n")
+      message("\t..In our data, the value is = ")
       for(j in 1:size) {
         if(j == size) {
           if(data[j]==perc_array[i]) {
-            cat(red(data[j]))
+            message(red(data[j]))
           } else {
-            cat(data[j])
+            message(data[j])
           }
         } else {
           if(data[j]==perc_array[i]) {
-            cat(red(data[j]), ",")
+            message(red(data[j]), ",")
           } else {
-            cat(data[j], ",")
+            message(data[j], ",")
           }
         }
       }
-      cat("\n")
+      message("\n")
     }
 
-    cat("\nNow try by your own! :D\n")
-    cat("\nUse percentile(interactive = TRUE) function to practice.\n")
+    message("\nNow try by your own! :D\n")
+    message("\nUse percentile(interactive = TRUE) function to practice.\n")
     return(perc_array[p*100])
   }
 
@@ -150,9 +150,9 @@ percentile <- function(x = NULL, p = NULL, learn = FALSE, interactive = FALSE) {
       }
     }
 
-    cat("Percentile ",p*100,"% = ",perc_sol, "\n")
+    message("Percentile ",p*100,"% = ",perc_sol, "\n")
     return(perc_sol)
   }else {
-    cat("Error, the percentile has to be less o equal than 1")
+    message("Error, the percentile has to be less o equal than 1")
   }
 }

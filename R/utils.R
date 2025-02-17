@@ -17,9 +17,9 @@
 drawVector <- function(buffer){
   for(i in 1:length(buffer)){
     if(i == length(buffer)){
-      cat(buffer[i])
+      message(buffer[i])
     } else {
-      cat(buffer[i], ",")
+      message(buffer[i], ",")
     }
   }
 }
@@ -40,18 +40,18 @@ getUserAction <- function(){
   resp <- "n"
 
   while(resp == "n"){
-    cat("Enter natural numbers separated by a space and press enter at the end\n")
+    message("Enter natural numbers separated by a space and press enter at the end\n")
     buffer_aux <- readline(prompt = "")
     buffer <- suppressWarnings(
       na.omit(as.numeric(unlist(strsplit(buffer_aux, " "))))
     )
     if(length(buffer) == 0) {
-      cat("\nNo valid numbers found. Please try again.\n")
+      message("\nNo valid numbers found. Please try again.\n")
       next
     }
-    cat("\nYou summited the following : ")
+    message("\nYou summited the following : ")
     drawVector(buffer)
-    cat("\nAre the data correct? any/n")
+    message("\nAre the data correct? any/n")
     resp <- readline(prompt = "")
 
   }

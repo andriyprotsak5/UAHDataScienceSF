@@ -41,27 +41,27 @@ cv <- function(x = NULL, learn = FALSE, interactive = FALSE) {
     initImages("cv.jpg")
     cont_aux <- 0
 
-    cat("\nInsert your data set:\n")
+    message("\nInsert your data set:\n")
     x = getUserAction()
     buffer = getUserAction()
 
-    cat("\nOK! Next Move !!\n")
+    message("\nOK! Next Move !!\n")
     flag <- 1
 
     while(flag == 1) {
-      cat("Please, insert the result of the coefficient of variation calculus for your data (if the result has decimal part, round to the 3rd): ")
+      message("Please, insert the result of the coefficient of variation calculus for your data (if the result has decimal part, round to the 3rd): ")
       usr_resp <- as.numeric(readline(prompt = ""))
       if(usr_resp == round(cv(buffer),3)) {
         flag <- 0
-        cat(bold("\n\nWell done !\n\n"))
+        message(bold("\n\nWell done !\n\n"))
       } else {
         cont_aux <- cont_aux + 1
-        cat("Ups, that might not be correct...")
+        message("Ups, that might not be correct...")
         if(cont_aux == 1) {
-          cat(yellow("\nHint -> Psst!... Look at the formula on the plot panel at your side -->\n\n"))
+          message(yellow("\nHint -> Psst!... Look at the formula on the plot panel at your side -->\n\n"))
         }
         else if(cont_aux > 1 ) {
-          cat(yellow("\nHint 2 -> The coefficient of variation (CV) is defined as the ratio of the standard deviation to the mean.\n\n"))
+          message(yellow("\nHint 2 -> The coefficient of variation (CV) is defined as the ratio of the standard deviation to the mean.\n\n"))
         }
       }
     }
@@ -72,12 +72,12 @@ cv <- function(x = NULL, learn = FALSE, interactive = FALSE) {
   if (learn) {
     x <- as.vector(x)
 
-    cat(bold("\n__COEFFICIENT OF VARIATION__ \n"))
-    cat("\nThe coefficient of variation (CV) is defined as the ratio of the standard deviation to the mean.\n")
-    cat(green("\nFormula ->  (standardDeviation(x) / mean(x))\n"))
-    cat(bold("\n__Use Example__\n"))
-    cat("\nFirst of all, we need to know the contents of the datasets/vectors of numbers\n")
-    cat("\nThe contents of the vector is: ")
+    message(bold("\n__COEFFICIENT OF VARIATION__ \n"))
+    message("\nThe coefficient of variation (CV) is defined as the ratio of the standard deviation to the mean.\n")
+    message(green("\nFormula ->  (standardDeviation(x) / mean(x))\n"))
+    message(bold("\n__Use Example__\n"))
+    message("\nFirst of all, we need to know the contents of the datasets/vectors of numbers\n")
+    message("\nThe contents of the vector is: ")
 
     drawVector(x)
 
@@ -85,12 +85,12 @@ cv <- function(x = NULL, learn = FALSE, interactive = FALSE) {
     meanx <- mean_(x)
     res <- (sDX/(meanx))
 
-    cat("The standard deviation of the elements of x is: ", blue(sDX), "\n")
-    cat("The value of mean: ", blue(meanx), "\n")
-    cat("\nFormula applied -> (", sDX, "/ ",meanx , " = ", bold(res))
+    message("The standard deviation of the elements of x is: ", blue(sDX), "\n")
+    message("The value of mean: ", blue(meanx), "\n")
+    message("\nFormula applied -> (", sDX, "/ ",meanx , " = ", bold(res))
 
-    cat("\nNow try by your own! :D\n")
-    cat("\nUse cv(interactive = TRUE) function to practice.\n")
+    message("\nNow try by your own! :D\n")
+    message("\nUse cv(interactive = TRUE) function to practice.\n")
     return(res)
   }
 

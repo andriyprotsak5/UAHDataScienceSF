@@ -44,29 +44,29 @@ covariance <- function(x = NULL, y = NULL, learn = FALSE, interactive = FALSE) {
     initImages("covariance.jpg")
     cont_aux <- 0
 
-    cat("\nInsert your first data set:\n")
+    message("\nInsert your first data set:\n")
     x = getUserAction()
 
-    cat("\nInsert your second data set:\n")
+    message("\nInsert your second data set:\n")
     y = getUserAction()
 
-    cat("\nOK! Next Move !!\n")
+    message("\nOK! Next Move !!\n")
     flag <- 1
 
     while(flag == 1) {
-      cat("Please, insert the result of the covariance calculus for your data (if the result has decimal part, round to the 3rd): ")
+      message("Please, insert the result of the covariance calculus for your data (if the result has decimal part, round to the 3rd): ")
       usr_resp <- as.numeric(readline(prompt = ""))
       if(usr_resp == round(covariance(x,y),3)) {
         flag <- 0
-        cat(bold("\n\nWell done !\n\n"))
+        message(bold("\n\nWell done !\n\n"))
       } else {
         cont_aux <- cont_aux + 1
-        cat("Ups, that might not be correct...")
+        message("Ups, that might not be correct...")
         if(cont_aux == 1) {
-          cat(yellow("\nHint -> Psst!... Look at the formula on the plot panel at your side -->\n\n"))
+          message(yellow("\nHint -> Psst!... Look at the formula on the plot panel at your side -->\n\n"))
         }
         else if(cont_aux > 1 ) {
-          cat(yellow("\nHint 2 -> The covariance of a dataset is calculated by product of sum of elements of x minus the mean's x and sum elements of y minus the mean's y. All of then divide by size of anyone dataset.\n\n"))
+          message(yellow("\nHint 2 -> The covariance of a dataset is calculated by product of sum of elements of x minus the mean's x and sum elements of y minus the mean's y. All of then divide by size of anyone dataset.\n\n"))
         }
       }
     }
@@ -77,43 +77,43 @@ covariance <- function(x = NULL, y = NULL, learn = FALSE, interactive = FALSE) {
   if (learn) {
     x <- as.vector(x)
 
-    cat(bold("\n__COVARIANCE CALCULUS__ \n"))
-    cat("\nThe covariance of two datasets is calculated by multiplying the differences between each element and its mean, summing these products, and dividing by the number of elements.\n")
-    cat(green("\nFormula ->  Summation((x - mean_x)*(y - mean_y)) / n\n"))
-    cat(green("\nMean -> (x1 + x2 +..+xn) / n\n"))
-    cat(bold("\n__Use Example__\n"))
-    cat("\nFirst of all, we need to know the contents of the datasets/vectors of numbers\n")
-    cat("\nThe contents of the vectors are: ")
+    message(bold("\n__COVARIANCE CALCULUS__ \n"))
+    message("\nThe covariance of two datasets is calculated by multiplying the differences between each element and its mean, summing these products, and dividing by the number of elements.\n")
+    message(green("\nFormula ->  Summation((x - mean_x)*(y - mean_y)) / n\n"))
+    message(green("\nMean -> (x1 + x2 +..+xn) / n\n"))
+    message(bold("\n__Use Example__\n"))
+    message("\nFirst of all, we need to know the contents of the datasets/vectors of numbers\n")
+    message("\nThe contents of the vectors are: ")
 
     drawVector(x)
     drawVector(y)
 
     meanx <- mean_(x)
     meany <- mean_(y)
-    cat("\nThe mean of x dataset is...", blue(meanx))
-    cat("\nThe mean of y dataset is...", blue(meany))
-    cat("\nThe products of differences from means: ")
+    message("\nThe mean of x dataset is...", blue(meanx))
+    message("\nThe mean of y dataset is...", blue(meany))
+    message("\nThe products of differences from means: ")
     sum <- 0
     for(i in 1:length(x)) {
       prod <- (x[i] - meanx) * (y[i] - meany)
       if(i == length(x)) {
-        cat(prod)
+        message(prod)
         sum <- sum + prod
       } else {
-        cat(prod, ",")
+        message(prod, ",")
         sum <- sum + prod
       }
     }
 
     res <- sum/length(x)
-    cat("\nNow we need to add all these products\n")
-    cat("The sum of the products is: ", blue(sum), "\n")
-    cat("\nNext step, get the number of elements that we've examined")
-    cat("\nThe length of the vectors is ", blue(length(x)), "elements\n")
-    cat("\nFormula applied -> ", sum, "/", length(x), " = ", bold(res))
+    message("\nNow we need to add all these products\n")
+    message("The sum of the products is: ", blue(sum), "\n")
+    message("\nNext step, get the number of elements that we've examined")
+    message("\nThe length of the vectors is ", blue(length(x)), "elements\n")
+    message("\nFormula applied -> ", sum, "/", length(x), " = ", bold(res))
 
-    cat("\nNow try by your own! :D\n")
-    cat("\nUse covariance(interactive = TRUE) function to practice.\n")
+    message("\nNow try by your own! :D\n")
+    message("\nUse covariance(interactive = TRUE) function to practice.\n")
     return(res)
   }
 

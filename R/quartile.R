@@ -43,12 +43,12 @@ quartile <- function(x = NULL, learn = FALSE, interactive = FALSE) {
     cont_aux <- 0
     cont_aux_lim <- 0
 
-    cat("\nInsert your data set:\n")
+    message("\nInsert your data set:\n")
     buffer = getUserAction()
 
     #show data sorted
     buffer = sort(buffer)
-    cat("\nData sorted : ")
+    message("\nData sorted : ")
 
     drawVector(buffer)
 
@@ -66,25 +66,25 @@ quartile <- function(x = NULL, learn = FALSE, interactive = FALSE) {
     q2_lim <- buffer[ceiling((2 * length(buffer)) / 4)]
     q3_lim <- buffer[ceiling((3 * length(buffer)) / 4)]
 
-    cat("\nOK! Next Move !!\n")
+    message("\nOK! Next Move !!\n")
 
     #QUARTILE 1
     flag_q1 <- 1
     while(flag_q1 == 1) {
-      cat("Please, insert the result of the Quartil 1 calculus for your data : ")
-      cat("\nIf the number has decimals, round to the 3rd\n")
+      message("Please, insert the result of the Quartil 1 calculus for your data : ")
+      message("\nIf the number has decimals, round to the 3rd\n")
       q1_resp <- as.numeric(readline(prompt = ""))
       if(q1_resp == q1) {
         flag_q1 <- 0
-        cat(italic("\nQuartile 1 correct!\n"))
+        message(italic("\nQuartile 1 correct!\n"))
       } else {
         cont_aux <- cont_aux + 1
-        cat("Ups, that might not be correct...")
+        message("Ups, that might not be correct...")
         if(cont_aux == 1) {
-          cat(yellow("\nHint -> Psst!... Look at the formula on the plot panel at your side -->\n\n"))
+          message(yellow("\nHint -> Psst!... Look at the formula on the plot panel at your side -->\n\n"))
         }
         else if(cont_aux > 2 ) {
-          cat(yellow("\nHint 2 -> (size/4)\n\n"))
+          message(yellow("\nHint 2 -> (size/4)\n\n"))
         }
       }
     }
@@ -92,20 +92,20 @@ quartile <- function(x = NULL, learn = FALSE, interactive = FALSE) {
     #QUARTILE 2
     flag_q2 <- 1
     while(flag_q2 == 1) {
-      cat("Please, insert the result of the Quantil 2 calculus for your data : ")
-      cat("\nIf the number has decimals, round to the 3rd\n")
+      message("Please, insert the result of the Quantil 2 calculus for your data : ")
+      message("\nIf the number has decimals, round to the 3rd\n")
       q2_resp <- as.numeric(readline(prompt = ""))
       if(q2_resp == q2) {
         flag_q2 <- 0
-        cat(italic("\nQuartile 2 correct!\n"))
+        message(italic("\nQuartile 2 correct!\n"))
       } else {
         cont_aux <- cont_aux + 1
-        cat("Ups, that might not be correct...")
+        message("Ups, that might not be correct...")
         if(cont_aux == 1) {
-          cat(yellow("\nHint -> Psst!... Look at the formula on the plot panel at your side -->\n\n"))
+          message(yellow("\nHint -> Psst!... Look at the formula on the plot panel at your side -->\n\n"))
         }
         else if(cont_aux > 2 ) {
-          cat(yellow("\nHint 2 -> The 2th Quartile is the median\n\n"))
+          message(yellow("\nHint 2 -> The 2th Quartile is the median\n\n"))
         }
       }
     }
@@ -113,41 +113,41 @@ quartile <- function(x = NULL, learn = FALSE, interactive = FALSE) {
     #QUARTILE 3
     flag_q3 <- 1
     while(flag_q3 == 1) {
-      cat("Please, insert the result of the Quantil 3 calculus for your data : ")
-      cat("\nIf the number has decimals, round to the 3rd\n")
+      message("Please, insert the result of the Quantil 3 calculus for your data : ")
+      message("\nIf the number has decimals, round to the 3rd\n")
       q3_resp <- as.numeric(readline(prompt = ""))
       if(q3_resp == q3) {
         flag_q3 <- 0
-        cat(italic("\nQuartile 3 correct!\n"))
-        cat(bold("\n\nWell done !\n\n"))
+        message(italic("\nQuartile 3 correct!\n"))
+        message(bold("\n\nWell done !\n\n"))
       } else {
         cont_aux <- cont_aux + 1
-        cat("Ups, that might not be correct...")
+        message("Ups, that might not be correct...")
         if(cont_aux == 1) {
-          cat(yellow("\nHint -> Psst!... Look at the formula on the plot panel at your side -->\n\n"))
+          message(yellow("\nHint -> Psst!... Look at the formula on the plot panel at your side -->\n\n"))
         }
         else if(cont_aux > 2 ) {
-          cat(yellow("\nHint 2 -> (3 * size)/4\n\n"))
+          message(yellow("\nHint 2 -> (3 * size)/4\n\n"))
         }
       }
     }
 
-    cat("\n\nNow identify the number which represents the limit of each quartil\n\n")
+    message("\n\nNow identify the number which represents the limit of each quartil\n\n")
 
     #QUARTILE 1 LIMIT
     flag_q1_lim <- 1
     while(flag_q1_lim == 1) {
-      cat("Please, insert the number which represents the Quartile 1 limit for your data : ")
-      cat("\n(remember your data) -> ", buffer , "\n")
+      message("Please, insert the number which represents the Quartile 1 limit for your data : ")
+      message("\n(remember your data) -> ", buffer , "\n")
       q1_resp <- as.numeric(readline(prompt = ""))
       if(q1_resp == q1_lim) {
         flag_q1_lim <- 0
-        cat(italic("\nQuartile 1 limit correct!\n"))
+        message(italic("\nQuartile 1 limit correct!\n"))
       } else {
         cont_aux_lim <- cont_aux_lim + 1
-        cat("Ups, that might not be correct...")
+        message("Ups, that might not be correct...")
         if(cont_aux == 1) {
-          cat(yellow("\nHint -> Psst!... round up the result of the 1st Quartile\n\n"))
+          message(yellow("\nHint -> Psst!... round up the result of the 1st Quartile\n\n"))
         }
       }
     }
@@ -155,17 +155,17 @@ quartile <- function(x = NULL, learn = FALSE, interactive = FALSE) {
     #QUARTILE 2 LIMIT
     flag_q2_lim <- 1
     while(flag_q2_lim == 1) {
-      cat("Please, insert the number which represents the Quartile 2 limit for your data : ")
-      cat("\n(remember your data) -> ", buffer , "\n")
+      message("Please, insert the number which represents the Quartile 2 limit for your data : ")
+      message("\n(remember your data) -> ", buffer , "\n")
       q2_resp <- as.numeric(readline(prompt = ""))
       if(q2_resp == q2_lim) {
         flag_q2_lim <- 0
-        cat(italic("\nQuartile 2 limit correct!\n"))
+        message(italic("\nQuartile 2 limit correct!\n"))
       } else {
         cont_aux_lim <- cont_aux_lim + 1
-        cat("Ups, that might not be correct...")
+        message("Ups, that might not be correct...")
         if(cont_aux == 1) {
-          cat(yellow("\nHint -> Psst!... round up the result of the 2nd Quartile\n\n"))
+          message(yellow("\nHint -> Psst!... round up the result of the 2nd Quartile\n\n"))
         }
       }
     }
@@ -173,40 +173,40 @@ quartile <- function(x = NULL, learn = FALSE, interactive = FALSE) {
     #QUARTILE 3 LIMIT
     flag_q3_lim <- 1
     while(flag_q3_lim == 1) {
-      cat("Please, insert the number which represents the Quartile 3 limit for your data : ")
-      cat("\n(remember your data) -> ", buffer , "\n")
+      message("Please, insert the number which represents the Quartile 3 limit for your data : ")
+      message("\n(remember your data) -> ", buffer , "\n")
       q3_resp <- as.numeric(readline(prompt = ""))
       if(q3_resp == q3_lim) {
         flag_q3_lim <- 0
-        cat(italic("\nQuartile 3 limit correct!\n"))
-        cat(bold("\n\nWell done !\n\n"))
+        message(italic("\nQuartile 3 limit correct!\n"))
+        message(bold("\n\nWell done !\n\n"))
       } else {
         cont_aux_lim <- cont_aux_lim + 1
-        cat("Ups, that might not be correct...")
+        message("Ups, that might not be correct...")
         if(cont_aux == 1) {
-          cat(yellow("\nHint -> Psst!... round up the result of the 3rd Quartile\n\n"))
+          message(yellow("\nHint -> Psst!... round up the result of the 3rd Quartile\n\n"))
         }
       }
     }
 
-    cat(italic("\n\nWell done, you've got it!\n\n"))
+    message(italic("\n\nWell done, you've got it!\n\n"))
     return(invisible(NULL))
   }
 
   # Learning mode
   if (learn) {
-    cat(bold("\n__QUARTILES CALCULUS__ \n"))
-    cat("\nThe quartile divides the dataset in 4 parts as equal as possible.\n")
-    cat(green("\nFormula -> First quartile (Q1) as the median of the first half of values. \n"))
-    cat(green("             Second quartile (Q2) as the median of the series itself.\n"))
-    cat(green("             Third quartile (Q3) as the median of the second half of values. \n"))
-    cat(bold("\n__Use Example__\n"))
-    cat("\nStep 1: The vector must be sorted.\n")
+    message(bold("\n__QUARTILES CALCULUS__ \n"))
+    message("\nThe quartile divides the dataset in 4 parts as equal as possible.\n")
+    message(green("\nFormula -> First quartile (Q1) as the median of the first half of values. \n"))
+    message(green("             Second quartile (Q2) as the median of the series itself.\n"))
+    message(green("             Third quartile (Q3) as the median of the second half of values. \n"))
+    message(bold("\n__Use Example__\n"))
+    message("\nStep 1: The vector must be sorted.\n")
 
     drawVector(x)
 
-    cat("\n")
-    cat("\nStep 2: Calculated the quartiles \n")
+    message("\n")
+    message("\nStep 2: Calculated the quartiles \n")
 
     vec <- sort(as.vector(x))
     size <- round((length(vec)+1)/2)
@@ -220,39 +220,39 @@ quartile <- function(x = NULL, learn = FALSE, interactive = FALSE) {
     q3 <- ceiling((3 * length(vec)) / 4)
 
     q1_ <- median_(mid1)
-    cat("\nQ1 -> (median ", mid1, ")  = ", q1_)
+    message("\nQ1 -> (median ", mid1, ")  = ", q1_)
     q2_ <- median_(x)
-    cat("\nQ1 -> (median ", vec, ")  = ", q2_)
+    message("\nQ1 -> (median ", vec, ")  = ", q2_)
     q3_ <- median_(mid2)
-    cat("\nQ1 -> (median ", mid2, ")  = ", q3_)
+    message("\nQ1 -> (median ", mid2, ")  = ", q3_)
 
-    cat("\n\nVisualization with colors:\n")
+    message("\n\nVisualization with colors:\n")
 
     #visualization with colors
     for(i in 1:q1) {
-      cat(vec[i], ",")
+      message(vec[i], ",")
     }
     for(i in (q1+1):(q2)) {
-      cat(blue(vec[i], ","))
+      message(blue(vec[i], ","))
     }
     for(i in (q2+1):(q3)) {
-      cat(green(vec[i], ","))
+      message(green(vec[i], ","))
     }
     for(i in (q3+1):length(vec)) {
       if(i == (length(vec))) {
-        cat(red(vec[i]), "\n")
+        message(red(vec[i]), "\n")
       } else {
-        cat(red(vec[i], ","))
+        message(red(vec[i], ","))
       }
     }
     #displaying results
-    cat("\nQ1 -> ", q1_)
-    cat(blue(" || Q2 -> ", q2_))
-    cat(green(" || Q3 -> ", q3_))
-    cat(red(" || Q4 -> onwards"))
+    message("\nQ1 -> ", q1_)
+    message(blue(" || Q2 -> ", q2_))
+    message(green(" || Q3 -> ", q3_))
+    message(red(" || Q4 -> onwards"))
 
-    cat("\nNow try by your own! :D\n")
-    cat("\nUse quartile(interactive = TRUE) function to practice.\n")
+    message("\nNow try by your own! :D\n")
+    message("\nUse quartile(interactive = TRUE) function to practice.\n")
 
     res <- c(q1_,q2_,q3_)
     names(res) <- c("Q1","Q2","Q3")

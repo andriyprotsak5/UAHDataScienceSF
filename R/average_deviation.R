@@ -42,26 +42,26 @@ average_deviation <- function(x = NULL, learn = FALSE, interactive = FALSE) {
     initImages("average_deviation.jpg")
     cont_aux <- 0
 
-    cat("\nInsert your data set:\n")
+    message("\nInsert your data set:\n")
     buffer = getUserAction()
 
-    cat("\nOK! Next Move !!\n")
+    message("\nOK! Next Move !!\n")
     flag <- 1
 
     while(flag == 1) {
-      cat("Please, insert the result of the average deviation calculus for your data (if the result has decimal part, round to the 3rd): ")
+      message("Please, insert the result of the average deviation calculus for your data (if the result has decimal part, round to the 3rd): ")
       usr_resp <- as.numeric(readline(prompt = ""))
       if(usr_resp == round(average_deviation(buffer),3)) {
         flag <- 0
-        cat(bold("\n\nWell done !\n\n"))
+        message(bold("\n\nWell done !\n\n"))
       } else {
         cont_aux <- cont_aux + 1
-        cat("Ups, that might not be correct...")
+        message("Ups, that might not be correct...")
         if(cont_aux == 1) {
-          cat(yellow("\nHint -> Psst!... Look at the formula on the plot panel at your side -->\n\n"))
+          message(yellow("\nHint -> Psst!... Look at the formula on the plot panel at your side -->\n\n"))
         }
         else if(cont_aux > 1 ) {
-          cat(yellow("\nHint 2 -> Check the function 'explain.averageDeviation'\n\n"))
+          message(yellow("\nHint 2 -> Check the function 'explain.averageDeviation'\n\n"))
         }
       }
     }
@@ -72,39 +72,39 @@ average_deviation <- function(x = NULL, learn = FALSE, interactive = FALSE) {
   if (learn) {
     x <- as.vector(x)
 
-    cat(bold("\n__AVERAGE DEVIATION CALCULUS__ \n"))
-    cat("\nThe average deviation of a dataset is calculated by adding the absolute value of the diference between each element and the mean of the dataset. This sum will be dividing by the number of elements in the dataset. We'll give the user an example for better comprension.\n")
-    cat(green("\nFormula ->  (Summation(abs(each_element - mean))) / num_elements\n"))
-    cat(green("\nMean -> (x1 + x2 +..+xn) / num_elements\n"))
-    cat(bold("\n__Use Example__\n"))
-    cat("\nFirst of all, we need to know the content of the dataset/vector of numbers\n")
-    cat("\nThe content of the vector is: ")
+    message(bold("\n__AVERAGE DEVIATION CALCULUS__ \n"))
+    message("\nThe average deviation of a dataset is calculated by adding the absolute value of the diference between each element and the mean of the dataset. This sum will be dividing by the number of elements in the dataset. We'll give the user an example for better comprension.\n")
+    message(green("\nFormula ->  (Summation(abs(each_element - mean))) / num_elements\n"))
+    message(green("\nMean -> (x1 + x2 +..+xn) / num_elements\n"))
+    message(bold("\n__Use Example__\n"))
+    message("\nFirst of all, we need to know the content of the dataset/vector of numbers\n")
+    message("\nThe content of the vector is: ")
 
     drawVector(x)
 
     mean <- mean_(x)
-    cat("\nThe mean of dataset is...", blue(mean))
-    cat("\nThe absolute value of the diference between each number and the mean of dataset is: ")
+    message("\nThe mean of dataset is...", blue(mean))
+    message("\nThe absolute value of the diference between each number and the mean of dataset is: ")
     suma <- 0
     for(i in 1:length(x)) {
       absolute <- abs(x[i] - mean)
       if( i == length(x)) {
-        cat(absolute)
+        message(absolute)
         suma <- suma + absolute
       } else {
-        cat(absolute, ",")
+        message(absolute, ",")
         suma <- suma + absolute
       }
     }
     res <- (suma/length(x))
-    cat("\nNow we need to add each element of the vector/dataset\n")
-    cat("The sum of the squares is: ", blue(suma), "\n")
-    cat("\nNext step, get the number of elements that we've examined")
-    cat("\nThe length of the vector is ", blue(length(x)), "elements\n")
-    cat("\nFormula applied -> ", suma, "/", length(x) , " = ", bold(res))
+    message("\nNow we need to add each element of the vector/dataset\n")
+    message("The sum of the squares is: ", blue(suma), "\n")
+    message("\nNext step, get the number of elements that we've examined")
+    message("\nThe length of the vector is ", blue(length(x)), "elements\n")
+    message("\nFormula applied -> ", suma, "/", length(x) , " = ", bold(res))
 
-    cat("\nNow try by your own! :D\n")
-    cat("\nUse average_deviation(interactive = TRUE) function to practice.\n")
+    message("\nNow try by your own! :D\n")
+    message("\nUse average_deviation(interactive = TRUE) function to practice.\n")
     return(res)
   }
 

@@ -44,28 +44,28 @@ chisquared <- function(x = NULL, y = NULL, learn = FALSE, interactive = FALSE) {
     initImages("chisquared.png")
     cont_aux <- 0
 
-    cat("\nInsert the dataset x:\n")
+    message("\nInsert the dataset x:\n")
     x = getUserAction()
-    cat("\nInsert the dataset y:\n")
+    message("\nInsert the dataset y:\n")
     y = getUserAction()
 
-    cat("\nOK! Next Move !!\n")
+    message("\nOK! Next Move !!\n")
     flag <- 1
 
     while(flag == 1) {
-      cat("Please, insert the result of the chi-squared calculus for your data (if the result has decimal part, round to the 3rd): ")
+      message("Please, insert the result of the chi-squared calculus for your data (if the result has decimal part, round to the 3rd): ")
       usr_resp <- as.numeric(readline(prompt = ""))
       if(usr_resp == round(chisquared(x,y),3)) {
         flag <- 0
-        cat(bold("\n\nWell done !\n\n"))
+        message(bold("\n\nWell done !\n\n"))
       } else {
         cont_aux <- cont_aux + 1
-        cat("Ups, that might not be correct...")
+        message("Ups, that might not be correct...")
         if(cont_aux == 1) {
-          cat(yellow("\nHint -> Psst!... Look at the formula on the plot panel at your side -->\n\n"))
+          message(yellow("\nHint -> Psst!... Look at the formula on the plot panel at your side -->\n\n"))
         }
         else if(cont_aux > 1 ) {
-          cat(yellow("\nHint 2 -> Check that you are entering your result correctly. It's easy to be wrong.\n\n"))
+          message(yellow("\nHint 2 -> Check that you are entering your result correctly. It's easy to be wrong.\n\n"))
         }
       }
     }
@@ -74,45 +74,45 @@ chisquared <- function(x = NULL, y = NULL, learn = FALSE, interactive = FALSE) {
 
   # Learning mode
   if (learn) {
-    cat(bold("\n__CALCUATED CHI-SQUARED DISTRIBUTION__ \n"))
-    cat("\nCalculated chi-squared is a probability distribution that serves to manifest tests in hypothesis of frequencies, this test compares observed frequencies with those expected frequencies.\n")
-    cat(green("\nFormula ->  ((x[1]-y[1])^2)/y[1] + ((x[2]-y[2])^2)/y[2] + ... + ((x[n]-y[n])^2)/y[n]"))
+    message(bold("\n__CALCUATED CHI-SQUARED DISTRIBUTION__ \n"))
+    message("\nCalculated chi-squared is a probability distribution that serves to manifest tests in hypothesis of frequencies, this test compares observed frequencies with those expected frequencies.\n")
+    message(green("\nFormula ->  ((x[1]-y[1])^2)/y[1] + ((x[2]-y[2])^2)/y[2] + ... + ((x[n]-y[n])^2)/y[n]"))
 
     sizex <- length(x)
     sizey <- length(y)
 
     if (sizex == sizey) {
-      cat(bold("\n__Use Example__\n"))
-      cat("\nFirst of all, we need to know the contents of the datasets/vectors of numbers\n")
-      cat("\nThe contents of the vector x is: \n")
+      message(bold("\n__Use Example__\n"))
+      message("\nFirst of all, we need to know the contents of the datasets/vectors of numbers\n")
+      message("\nThe contents of the vector x is: \n")
       drawVector(x)
 
-      cat("\nThe contents of the vector y is: \n")
+      message("\nThe contents of the vector y is: \n")
       drawVector(y)
-      cat("\n")
+      message("\n")
 
       res <- chisquared(x,y)
       total = 0
-      cat("\nFormula applied ->")
+      message("\nFormula applied ->")
       for(i in 1:sizex) {
         chi <- ((x[i]-y[i])^2)/y[i]
         total <- total + chi
         if(i == sizex) {
-          cat(red(chi))
+          message(red(chi))
         } else {
-          cat(red(" ",chi,"+"))
+          message(red(" ",chi,"+"))
         }
       }
 
-      cat(red(" = "))
-      cat(bold(total))
+      message(red(" = "))
+      message(bold(total))
 
-      cat("\nNow try by your own! :D\n")
-      cat("\nUse chisquared(interactive=TRUE) function to practice.\n")
+      message("\nNow try by your own! :D\n")
+      message("\nUse chisquared(interactive=TRUE) function to practice.\n")
       return(res)
 
     } else {
-      cat("Size of sample is not correct")
+      message("Size of sample is not correct")
     }
   }
 
@@ -127,6 +127,6 @@ chisquared <- function(x = NULL, y = NULL, learn = FALSE, interactive = FALSE) {
     res <- total
     return(res)
   } else {
-    cat("Size of sample is not correct")
+    message("Size of sample is not correct")
   }
 }

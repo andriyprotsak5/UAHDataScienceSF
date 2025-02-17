@@ -44,30 +44,30 @@ pearson <- function(x = NULL, y = NULL, learn = FALSE, interactive = FALSE) {
     initImages("pearson.png")
     cont_aux <- 0
 
-    cat("\nInsert your first data set:\n")
+    message("\nInsert your first data set:\n")
     x = getUserAction()
-    cat("\nInsert your second data set:\n")
+    message("\nInsert your second data set:\n")
     y = getUserAction()
 
-    cat("\nOK! Next Move !!\n")
+    message("\nOK! Next Move !!\n")
     flag <- 1
 
     while(flag == 1) {
-      cat("Please, insert the result of the pearson's correlation calculus for your data (if the result has decimal part, round to the 3rd): ")
+      message("Please, insert the result of the pearson's correlation calculus for your data (if the result has decimal part, round to the 3rd): ")
       usr_resp <- as.numeric(readline(prompt = ""))
       if(usr_resp == round(pearson(x,y),3)) {
         flag <- 0
-        cat(bold("\n\nWell done !\n\n"))
+        message(bold("\n\nWell done !\n\n"))
       } else {
         cont_aux <- cont_aux + 1
-        cat("Ups, that might not be correct...")
+        message("Ups, that might not be correct...")
         if(cont_aux == 1) {
-          cat(yellow("\nHint -> Psst!... Look at the formula on the plot panel at your side -->\n\n"))
+          message(yellow("\nHint -> Psst!... Look at the formula on the plot panel at your side -->\n\n"))
         }else if(cont_aux == 2) {
-          cat(yellow("\nHint -> It has a value between +1 and -1 -->\n\n"))
+          message(yellow("\nHint -> It has a value between +1 and -1 -->\n\n"))
         }
         else if(cont_aux > 2 ) {
-          cat(yellow("\nHint 2 -> Pearson's correlation coefficient is the covariance of the two variables divided by the product of their standard deviations.It has a value between +1 and -1. A value of +1 is total positive linear correlation, 0 is no linear correlation, and -1 is total negative linear correlation.\n\n"))
+          message(yellow("\nHint 2 -> Pearson's correlation coefficient is the covariance of the two variables divided by the product of their standard deviations.It has a value between +1 and -1. A value of +1 is total positive linear correlation, 0 is no linear correlation, and -1 is total negative linear correlation.\n\n"))
         }
       }
     }
@@ -78,12 +78,12 @@ pearson <- function(x = NULL, y = NULL, learn = FALSE, interactive = FALSE) {
   if (learn) {
     x <- as.vector(x)
 
-    cat(bold("\n__PEARSON CORRELATION COEFFICIENT__ \n"))
-    cat("\nPearson's correlation coefficient is the covariance of the two variables divided by the product of their standard deviations.It has a value between +1 and -1. A value of +1 is total positive linear correlation, 0 is no linear correlation, and -1 is total negative linear correlation.\n")
-    cat(green("\nFormula ->  (covariance(x,y) / (standardDeviation(x) * standardDeviation(y))\n"))
-    cat(bold("\n__Use Example__\n"))
-    cat("\nFirst of all, we need to know the contents of the datasets/vectors of numbers\n")
-    cat("\nThe contents of the vectors are: ")
+    message(bold("\n__PEARSON CORRELATION COEFFICIENT__ \n"))
+    message("\nPearson's correlation coefficient is the covariance of the two variables divided by the product of their standard deviations.It has a value between +1 and -1. A value of +1 is total positive linear correlation, 0 is no linear correlation, and -1 is total negative linear correlation.\n")
+    message(green("\nFormula ->  (covariance(x,y) / (standardDeviation(x) * standardDeviation(y))\n"))
+    message(bold("\n__Use Example__\n"))
+    message("\nFirst of all, we need to know the contents of the datasets/vectors of numbers\n")
+    message("\nThe contents of the vectors are: ")
 
     drawVector(x)
     drawVector(y)
@@ -93,13 +93,13 @@ pearson <- function(x = NULL, y = NULL, learn = FALSE, interactive = FALSE) {
     sDY <- standard_deviation(y)
 
     res <- (covar/(sDX*sDY))
-    cat("The value of covariance: ", blue(covar), "\n")
-    cat("The standard deviation of the elements of x is: ", blue(sDX), "\n")
-    cat("The standard deviation of the elements of y is: ", blue(sDY), "\n")
-    cat("\nFormula applied -> (", covar, "/ (",sDX , " * ", sDY, ") = ", bold(res))
+    message("The value of covariance: ", blue(covar), "\n")
+    message("The standard deviation of the elements of x is: ", blue(sDX), "\n")
+    message("The standard deviation of the elements of y is: ", blue(sDY), "\n")
+    message("\nFormula applied -> (", covar, "/ (",sDX , " * ", sDY, ") = ", bold(res))
 
-    cat("\nNow try by your own! :D\n")
-    cat("\nUse pearson(interactive = TRUE) function to practice.\n")
+    message("\nNow try by your own! :D\n")
+    message("\nUse pearson(interactive = TRUE) function to practice.\n")
     return(res)
   }
 

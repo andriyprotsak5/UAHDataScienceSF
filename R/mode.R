@@ -40,23 +40,23 @@ mode_ <- function(x = NULL, learn = FALSE, interactive = FALSE) {
   if (interactive) {
     cont_aux <- 0
 
-    cat("\nInsert your data set:\n")
+    message("\nInsert your data set:\n")
     buffer = getUserAction()
 
-    cat("\nOK! Next Move !!\n")
+    message("\nOK! Next Move !!\n")
     flag <- 1
 
     while(flag == 1) {
-      cat("Please, insert the result of the mode calculus for your data : ")
-      cat("\nIf the number has decimals, round to the 3rd\n")
+      message("Please, insert the result of the mode calculus for your data : ")
+      message("\nIf the number has decimals, round to the 3rd\n")
       usr_resp <- as.numeric(readline(prompt = ""))
       if(usr_resp == round(mode_(buffer),3)) {
         flag <- 0
-        cat(bold("\n\nWell done !\n\n"))
+        message(bold("\n\nWell done !\n\n"))
       } else {
         cont_aux <- cont_aux + 1
-        cat("Ups, that might not be correct...")
-        cat(yellow("\nHint -> Psst!... Take a closer look at the value most often\n\n"))
+        message("Ups, that might not be correct...")
+        message(yellow("\nHint -> Psst!... Take a closer look at the value most often\n\n"))
       }
     }
     return(invisible(NULL))
@@ -65,16 +65,16 @@ mode_ <- function(x = NULL, learn = FALSE, interactive = FALSE) {
   # Learning mode
   if (learn) {
     v <- as.vector(x)
-    cat(bold("\n__MODE CALCULUS__ \n"))
-    cat("\nThe mode of a dataset is calculated by looking for the most repeated value in the dataset. If in a group there are two or several scores with the same frequency and that frequency is the maximum, the distribution is bimodal or multimodal, that is, it has several modes.\n")
-    cat(green("\nFormula -> Most repeated value of [Data]\n"))
-    cat(bold("\n__Use Example__\n"))
-    cat("\nFirst step : search the most repeated value\n")
-    cat("\nThe content of the vector is: ")
+    message(bold("\n__MODE CALCULUS__ \n"))
+    message("\nThe mode of a dataset is calculated by looking for the most repeated value in the dataset. If in a group there are two or several scores with the same frequency and that frequency is the maximum, the distribution is bimodal or multimodal, that is, it has several modes.\n")
+    message(green("\nFormula -> Most repeated value of [Data]\n"))
+    message(bold("\n__Use Example__\n"))
+    message("\nFirst step : search the most repeated value\n")
+    message("\nThe content of the vector is: ")
 
     drawVector(v)
 
-    cat("\n")
+    message("\n")
     max <- 1
     mode <- v[0]
     for(i in 1:length(v)) {
@@ -90,15 +90,15 @@ mode_ <- function(x = NULL, learn = FALSE, interactive = FALSE) {
         max <- cont
       }
     }
-    cat("Factor " , bold(mode) , " appears ", blue(max)," times in the vector.\n")
+    message("Factor " , bold(mode) , " appears ", blue(max)," times in the vector.\n")
 
-    cat("\nSecond step : check the dataset looking for a value with the same maximum frequency\n")
-    cat("\nIf there are only 1 unique most repeated value, it is the mode.\n")
-    cat("If there are 2 values repeated with the same maximum frequency each value represents the mode. Bimodal dataset\n")
-    cat("If there are more than 2 values repeated with the same maximum frequency, it is a Multimodal dataset\n")
+    message("\nSecond step : check the dataset looking for a value with the same maximum frequency\n")
+    message("\nIf there are only 1 unique most repeated value, it is the mode.\n")
+    message("If there are 2 values repeated with the same maximum frequency each value represents the mode. Bimodal dataset\n")
+    message("If there are more than 2 values repeated with the same maximum frequency, it is a Multimodal dataset\n")
 
-    cat("\nNow try by your own! :D\n")
-    cat("\nUse mode_(interactive = TRUE) function to practice.\n")
+    message("\nNow try by your own! :D\n")
+    message("\nUse mode_(interactive = TRUE) function to practice.\n")
     return(mode)
   }
 
@@ -130,13 +130,13 @@ mode_ <- function(x = NULL, learn = FALSE, interactive = FALSE) {
     }
   }
 
-  cat("Factor appears ",max," times in the vector.\n")
+  message("Factor appears ",max," times in the vector.\n")
 
   if(length(poliMod) == 1) {
-    cat("Unique mode ")
+    message("Unique mode ")
     return(mode)
   } else {
-    cat("Multiples modes ")
+    message("Multiples modes ")
     return(poliMod)
   }
 }
